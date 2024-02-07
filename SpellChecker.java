@@ -50,9 +50,13 @@ public class SpellChecker {
 	public static String spellChecker(String word, int threshold, String[] dictionary) {
 		// Your code goes here
 		String firshort = "";
+		int dublewq = 0;
 		int smallerthenfirst = levenshtein(word, dictionary[0]);
 		for(int i = 0 ; i < 3000 ; i++){
-			if(levenshtein(word, dictionary[i]) <= threshold){
+			if(levenshtein(word, dictionary[i]) <= threshold && dublewq == 0 ){
+				if (threshold == levenshtein(word, dictionary[i])){
+					dublewq++;
+				}
 				firshort = dictionary[i];
 			
 			}
