@@ -62,6 +62,9 @@ public class SpellChecker {
 
 			
 	}
+		if(firshort.length() == 0){
+			firshort = word;
+		}
 		return firshort;
 	}
 }
