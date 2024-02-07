@@ -60,6 +60,11 @@ public class SpellChecker {
 				firshort = dictionary[i];
 			
 			}
+			if(levenshtein(word, dictionary[i]) == threshold){
+
+				firshort = dictionary[i];
+			
+			}
 			
 
 
