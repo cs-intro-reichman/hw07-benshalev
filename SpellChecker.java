@@ -47,27 +47,19 @@ public class SpellChecker {
 		return dictionary;
 	}
 
-	public static String spellChecker(String word, int threshold, String[] dictionary) {
-		// Your code goes here
-		String firshort = "";
-
-		for(int i = 0 ; i < 3000 ; i++){	
-			if (dictionary[i].equals(word)){
-			return dictionary[i];
-		}
-			if(levenshtein(word, dictionary[i]) <= threshold){
-				firshort = dictionary[i];
-			
+		public static String spellChecker(String word, int threshold, String[] dictionary) {
+			String correct = word;
+			int currentTresh=0;
+			int smallest = threshold+1;
+		for(int i = 0; i < dictionary.length; i++)
+		{
+			currentTresh = levenshtein(dictionary[i], word);
+			if(currentTresh <= threshold && currentTresh != smallest )
+			{
+				correct = dictionary[i];
+				smallest = currentTresh;
 			}
-			
-
-
-
-			
-	}
-		if(firshort.length() == 0){
-			firshort = word;
 		}
-		return firshort;
+		return correct;
 	}
 }
